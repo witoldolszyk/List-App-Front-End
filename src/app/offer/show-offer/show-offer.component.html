@@ -1,0 +1,54 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal" (click)="addClick()"
+data-backdrop="static" data-keyboard="false">
+    Add Offer
+  </button>
+  
+  <!-- Modal -->
+  <!-- <app-add-edit-cat></app-add-edit-cat> -->
+  <div class="modal fade text-light bg-dark" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-light bg-dark">
+          <h5 class="modal-title" id="exampleModalLabel">{{ModalTitle}}</h5>
+          <button type="button" class="close m-1 btn btn-dark btn-outline-danger" data-dismiss="modal" (click)="closeClick()">
+            Close
+          </button>
+        </div>
+        <div class="modal-body text-light bg-dark">
+            <app-add-edit-offer [offer]="offer" *ngIf="ActivateAddEditOfferComp">
+            </app-add-edit-offer>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<table class="table table-striped table-dark">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Created</th>
+            <th>Option</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let dataItem of OfferList">
+            <td>{{dataItem.OfferId}}</td>
+            <td>{{dataItem.OfferTitle}}</td>
+            <td>{{dataItem.OfferDescription}}</td>
+            <td>{{dataItem.OfferPrice}}</td>
+            <td>{{dataItem.OfferCreated}}</td>
+            <td>
+                <button type="button"
+                class="m-1 btn btn-dark btn-outline-info" data-toggle="modal" data-target="#exampleModal" (click)="editClick(dataItem)" data-backdrop="static" data-keyboard="false">Update</button>          
+                <button type="button"
+                class="m-1 btn btn-dark btn-outline-danger" (click)="deleteClick(dataItem)">Delete</button>
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+

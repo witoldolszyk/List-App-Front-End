@@ -1,0 +1,24 @@
+<div class="form-froup row">
+    <label class="col-sm-2 col-form-label">Title</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="OfferTitle"
+        placeholder="Provide Category Name">
+    </div> 
+    <label class="col-sm-2 col-form-label">Description</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="OfferDescription"
+        placeholder="Provide Description">
+    </div> 
+    <label class="col-sm-2 col-form-label">Price (must be a number)</label>
+    <div class="col-sm-10">
+        <input type="number" class="form-control" [(ngModel)]="OfferPrice"
+        placeholder="Provide Price. Must be in number, otherwise the data will be not added/updated">
+    </div> 
+</div>
+
+<button (click)="addOffer()" *ngIf="offer.OfferId==0" class="btn btn-outline-primary">
+    Add
+</button>
+<button (click)="updateOffer()" *ngIf="offer.OfferId!=0" class="btn btn-outline-primary">
+    Update
+</button>
